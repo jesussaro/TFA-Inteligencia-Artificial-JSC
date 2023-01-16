@@ -27,13 +27,18 @@ def digitalizeDigitalTextFromImage(img):
     # Mostramos el texto por consola
     print(text)
 
+    # Devolvemos el texto
     return text
 
 
 # MAIN
 
 # # Cargamos la imagen
-# img = cv2.imread("Imagenes/EjemploTodo5.png")
+# img = cv2.imread("Imagenes/EjemploDeteccionImagen1.png")
 
 # # Llamamos a la función
 # digitalizeDigitalTextFromImage(img)
+
+# # Mostramos la imagen original
+# cv2.imshow("Original Image", img)
+# cv2.waitKey(0)

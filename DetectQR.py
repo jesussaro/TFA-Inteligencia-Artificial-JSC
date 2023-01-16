@@ -17,6 +17,7 @@ def detectQR(img):
     retval, decoded_info, points, straight_qrcode = qcd.detectAndDecodeMulti(
         img)
 
+    # Mostramos por consola si se ha detectado o no un código QR
     print("QR Detected:", retval)
 
     # Contador para guardar las imagenes encontradas
@@ -45,11 +46,10 @@ def detectQR(img):
                        cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
             cv2.waitKey(0)
 
-            # Sumamos uno al contador
+            # Sumamos uno al contador para que se guarde con otro nombre la imagen con el QR detectado
             counter = counter + 1
 
-            print("points", points)
-            # Ajustamos los puntos del QR detectado para que no se vea el rectangulo verde que resalta al QR
+            # Ajustamos los puntos del QR detectado para que no se vea el rectangulo verde que resalta al QR (Sirve para ocultar el QR detectado una vez ya se ha resaltado con el rectángulo verde)
             points[0][0][0] = points[0][0][0] - 5
             points[0][0][1] = points[0][0][1] - 5
 
@@ -68,14 +68,16 @@ def detectQR(img):
             # Una vez le hemos detectado, devolvemos la imagen sin el código de barras (ya que previamente hemos ajustado los puntos del QR detectado)
             img = cv2.fillPoly(img, points.astype(int),
                                (255, 255, 255), cv2.LINE_AA)
-
+    # Devolvemos la imagen
     return img
 
 # MAIN
 
 
-#     # Obtenemos la imagen a leer
+# Obtenemos la imagen a leer
 # img = cv2.imread('Imagenes/EjemploQR3.png')
+# cv2.imshow("Original Image", img)
+# cv2.waitKey(0)
 
 # # Llamamos a la función
 # detectQR(img)

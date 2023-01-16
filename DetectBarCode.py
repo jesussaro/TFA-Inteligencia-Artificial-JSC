@@ -37,7 +37,7 @@ def detectBarCode(img):
             cv2.imshow("Bar code detected", barCodeDetected)
             cv2.waitKey(0)
 
-            # Sumamos uno al contador
+            # Sumamos uno al contador para que se guarde con otro nombre la imagen con el código de barras detectado
             counter = counter + 1
 
             # Una vez le hemos detectado, devolvemos la imagen sin el código de barras
@@ -47,14 +47,16 @@ def detectBarCode(img):
     else:
         # Si no se ha detectado ningún código de barras, se muestra este mensaje
         print("Bar code Detected: false")
-
+    # Devolvemos la imagen
     return img
 
 
 # MAIN
 
-# # Obtenemos la imagen a leer
+# Obtenemos la imagen a leer
 # img = cv2.imread('Imagenes/EjemploTodo5.png')
+# cv2.imshow("Original Image", img)
+# cv2.waitKey(0)
 
 # # Llamamos a la función
 # detectBarCode(img)

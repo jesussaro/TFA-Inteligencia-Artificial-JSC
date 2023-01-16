@@ -35,13 +35,18 @@ def digitalizeHandWrittenTextFromImage(img):
     # Mostramos el texto por consola
     print(text)
 
+    # Devolvemos el texto
     return text
 
 
 # MAIN
 
 # # Cargamos la imagen
-# img = cv2.imread("Imagenes/EjemploAMano11.png")
+# img = cv2.imread("Imagenes/EjemploAMano8.png")
 
 # # Llamamos a la función
 # digitalizeHandWrittenTextFromImage(img)
+
+# # Mostramos la imagen original
+# cv2.imshow("Original Image", img)
+# cv2.waitKey(0)

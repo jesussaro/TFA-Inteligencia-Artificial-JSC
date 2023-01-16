@@ -31,7 +31,7 @@ def detectImage(img):
         area_rect = w * h
         area_contour = cv2.contourArea(c)
 
-        # Si el área de la sub imagen encontrada es mayor que el 20% de la imagen original y menor que el 95% de la imagen original, la aceptamos
+        # Si el área de la sub imagen encontrada es mayor que el 20% de la imagen original y menor que el 99% de la imagen original, la aceptamos
         # Esto se hace para que no detecte imagenes demasiado pequeñas o demasiado grandes, un filtro
         if area_rect > ((0.2*height)*(0.2*width)) and area_rect < ((0.99*height)*(0.99*width)):
             # Recorta la sub imagen encontrada
@@ -46,21 +46,22 @@ def detectImage(img):
 
             # Dibuja un rectángulo alrededor del contorno
             cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
+            # Aumentamos el contador para guardar la siguiente sub imagen
             counter = counter + 1
-
+    # Devolvemos la imagen original con los rectángulos recalcando la sub imagen encontrada
     return img
 
 # MAIN
 
 
-# # Obtenemos la imagen a leer
-# img = cv2.imread('Imagenes/EjemploTodo6.png')
-# # La mostramos
-# cv2.imshow('image', img)
-# cv2.waitKey(0)
+# Obtenemos la imagen a leer
+img = cv2.imread('Imagenes/EjemploDeteccionImagen3.png')
+# La mostramos
+cv2.imshow('Original image', img)
+cv2.waitKey(0)
 
-# # Llamamos a la función
-# detectImage(img)
-# # Muestra la imagen original con los rectángulos recalcando la sub imagen encontrada
-# cv2.imshow('Final result', img)
-# cv2.waitKey(0)
+# Llamamos a la función
+detectImage(img)
+# Muestra la imagen original con los rectángulos recalcando la sub imagen encontrada
+cv2.imshow('Final result', img)
+cv2.waitKey(0)

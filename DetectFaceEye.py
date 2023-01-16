@@ -17,7 +17,7 @@ def detectFaceEyes(img):
     # Pasamos la imagen a blanco y negro
     gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    # Buscar las caras en la imagen y devolver las posiciones detectadas con un rectángulo(x, y, w, h)
+    # Buscar las caras en la imagen y guardarlas en una variable
     faces = haar_face_cascade.detectMultiScale(gray_img, scaleFactor=1.2,
                                                minNeighbors=5)
 
@@ -43,7 +43,7 @@ def detectFaceEyes(img):
 
     else:
         print('No se han encontrado caras en la imagen')
-
+    # Devolvemos la imagen
     return img
 
 
